@@ -1,9 +1,9 @@
-import { withApollo } from 'next-apollo'
+import { withApollo } from 'next-apollo';
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 
 const apolloClient = new ApolloClient({
-  uri: 'https://48p1r2roz4.sse.codesandbox.io/',
-  cache: new InMemoryCache()
+  uri: 'http://localhost:4000/',
+  cache: new InMemoryCache(),
 });
 
-export default withApollo(apolloClient)
+export default withApollo(apolloClient);
