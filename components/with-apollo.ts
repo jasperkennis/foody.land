@@ -1,8 +1,17 @@
+import { HttpLink } from 'apollo-boost'
+import fetch from 'isomorphic-fetch'
 import { withApollo } from 'next-apollo';
-import ApolloClient, { InMemoryCache } from 'apollo-boost';
+import { InMemoryCache } from 'apollo-cache-inmemory'
+
+import ApolloClient from 'apollo-client'
+
+
 
 const apolloClient = new ApolloClient({
-  uri: process.env.APOLLO_HOST,
+  link: new HttpLink({
+    uri: process.env.APOLLO_HOST,
+    fetch,
+  }),
   cache: new InMemoryCache(),
 });
 
