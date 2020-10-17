@@ -14,5 +14,10 @@ describe('Pages', () => {
       const wrap = mount(<IndexPage/>)
       expect(wrap.find(getTestSelector('recipes-list')).exists()).toBeTruthy()
     })
+
+    it('should show show 5 recipes', function () {
+      const wrap = mount(<IndexPage />)
+      expect(wrap.find(getTestSelector('recipes-list-item')).length).toBe(5)
+    })
   })
 })
