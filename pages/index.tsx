@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import styles from '../styles/home.module.css';
+import styles from '../styles/home.module.scss';
 import withApollo from '../components/with-apollo';
 
 const Home = () => (
@@ -14,12 +14,6 @@ const Home = () => (
       <h1 className={styles.title}>
         <a href="https://nextjs.org">Foody.Land</a>
       </h1>
-
-      <p className={styles.description}>
-        Get started by editing
-        {' '}
-        <code className={styles.code}>pages/index.js</code>
-      </p>
 
       <div className={styles.grid}>
         <a href="https://nextjs.org/docs" className={styles.card}>
