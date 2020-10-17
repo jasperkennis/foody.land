@@ -6,7 +6,7 @@ describe('Pages', () => {
   describe('Index', () => {
     it('should render without throwing an error', function () {
       const wrap = mount(<IndexPage/>)
-      expect(wrap.find('h1').text()).toBe('Hello Next.js')
+      expect(wrap.find('h1').text()).toBe('Foody.Land')
     })
   })
 })
