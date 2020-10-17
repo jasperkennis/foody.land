@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import styles from '../styles/home.module.scss';
 import withApollo from '../components/with-apollo';
+import RecipeList from '../components/recipe-list'
 
 const Home = () => (
   <div className={styles.container}>
@@ -15,13 +16,8 @@ const Home = () => (
         <a href="https://nextjs.org">Foody.Land</a>
       </h1>
 
-      <div className={styles['recipes-list']} data-test-selector="recipes-list">
-        <div className={styles['recipes-list-item']} data-test-selector="recipes-list-item">Look, cook!</div>
-        <div className={styles['recipes-list-item']} data-test-selector="recipes-list-item">Look, cook!</div>
-        <div className={styles['recipes-list-item']} data-test-selector="recipes-list-item">Look, cook!</div>
-        <div className={styles['recipes-list-item']} data-test-selector="recipes-list-item">Look, cook!</div>
-        <div className={styles['recipes-list-item']} data-test-selector="recipes-list-item">Look, cook!</div>
-      </div>
+      <RecipeList></RecipeList>
+
     </main>
   </div>
 );

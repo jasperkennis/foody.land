@@ -12,12 +12,12 @@ describe('Pages', () => {
 
     it('should show a list of recipes', function () {
       const wrap = mount(<IndexPage/>)
-      expect(wrap.find(getTestSelector('recipes-list')).exists()).toBeTruthy()
+      expect(wrap.find(getTestSelector('recipe-list')).exists()).toBeTruthy()
     })
 
     it('should show show 5 recipes', function () {
       const wrap = mount(<IndexPage />)
-      expect(wrap.find(getTestSelector('recipes-list-item')).length).toBe(5)
+      expect(wrap.find(getTestSelector('recipe-list-item')).length).toBe(5)
     })
   })
 })
