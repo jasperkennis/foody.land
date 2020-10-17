@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {mount} from 'enzyme'
 import IndexPage from '../pages/index'
+import { getTestSelector } from '../etc/globals'
 
 describe('Pages', () => {
   describe('Index', () => {
@@ -11,7 +12,7 @@ describe('Pages', () => {
 
     it('should show a list of recipes', function () {
       const wrap = mount(<IndexPage/>)
-      expect(wrap.find('[data-test-selector="recipes-list"]').exists()).toBeTruthy()
+      expect(wrap.find(getTestSelector('recipes-list')).exists()).toBeTruthy()
     })
   })
 })
