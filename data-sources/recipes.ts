@@ -9,7 +9,7 @@ interface RecipeDocument {
 }
 
 export default class Recipes extends MongoDataSource<RecipeDocument> {
-  getUser(title) {
+  getUser(title: string): Promise<RecipeDocument> {
     return this.findOneById(title);
   }
 }
