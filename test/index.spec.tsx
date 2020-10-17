@@ -4,9 +4,13 @@ import IndexPage from '../pages/index'
 
 describe('Pages', () => {
   describe('Index', () => {
-    it('should render without throwing an error', function () {
+    it('should show the right title', function () {
       const wrap = mount(<IndexPage/>)
       expect(wrap.find('h1').text()).toBe('Foody.Land')
+    })
+    it('should show a list of recipes', function () {
+      const wrap = mount(<IndexPage/>)
+      expect(wrap.find('.recipes-list').exists()).toBeTruthy()
     })
   })
 })
