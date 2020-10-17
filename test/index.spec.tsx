@@ -8,9 +8,10 @@ describe('Pages', () => {
       const wrap = mount(<IndexPage/>)
       expect(wrap.find('h1').text()).toBe('Foody.Land')
     })
+
     it('should show a list of recipes', function () {
       const wrap = mount(<IndexPage/>)
-      expect(wrap.find('.recipes-list').exists()).toBeTruthy()
+      expect(wrap.find('[data-test-selector="recipes-list"]').exists()).toBeTruthy()
     })
   })
 })
