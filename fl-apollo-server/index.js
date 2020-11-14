@@ -6,10 +6,6 @@ import schema from './dynamic-schema.js'
 
 const server = new ApolloServer({
   schema,
-  // typeDefs,
-  // resolvers,
-  // dataSources: () => ({
-  // })
 });
 
 server.listen().then(({ url }) => {
