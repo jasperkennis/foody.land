@@ -1,8 +1,9 @@
-require('dotenv').config()
+import dotenv from 'dotenv'
+dotenv.config()
 
-const { ApolloServer } = require('apollo-server');
-const typeDefs = require('./models/schema');
-const RecipesAPI = require('./data-sources/recipes');
+import { ApolloServer } from 'apollo-server'
+import typeDefs from './models/schema.js'
+import RecipesAPI from './data-sources/recipes.js'
 
 const server = new ApolloServer({
   typeDefs,

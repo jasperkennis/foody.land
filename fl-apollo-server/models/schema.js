@@ -1,6 +1,6 @@
-const { gql } = require('@apollo/client');
+import { gql } from 'apollo-server'
 
-const typeDefs = gql`
+export default gql`
 """
 Everything you need to know to make a yummy dish!
 """
@@ -47,5 +47,3 @@ type Mutation {
   updateRecipe(titles: [String]!): RecipeUpdateResponse!
 }
 `;
-
-module.exports = typeDefs;
