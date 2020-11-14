@@ -13,8 +13,8 @@
   "dependencies": {
     "@apollo/client": "^3.2.4",
     "apollo-boost": "^0.4.9",
-    "apollo-client": "^2.6.10",
     "apollo-datasource-mongodb": "^0.2.8",
+    "apollo-link": "^1.2.14",
     "apollo-server": "^2.18.2",
     "dotenv": "^8.2.0",
     "dotenv-load": "^2.0.0",
@@ -25,9 +25,11 @@
     "next-apollo": "^5.0.0",
     "next-env": "^1.1.1",
     "react": "16.14.0",
+    "react-apollo": "^3.1.5",
     "react-dom": "16.14.0",
     "react-redux": "^7.2.1",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "sass": "^1.27.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.7",
