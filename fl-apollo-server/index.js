@@ -1,5 +1,5 @@
 const { ApolloServer } = require('apollo-server');
-const typeDefs = require('../models/schema');
+const typeDefs = require('./models/schema');
 // const RecipesAPI = require('../data-sources/recipes');
 
 const server = new ApolloServer({

@@ -1,0 +1,17 @@
+{
+  "name": "apollo-server",
+  "version": "1.0.0",
+  "description": "The Apollo server for Foody.Land.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jasper Kennis <jasper.kennis@helloprint.com>",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^15.4.0"
+  }
+}
