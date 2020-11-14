@@ -1,11 +1,13 @@
+require('dotenv').config()
+
 const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./models/schema');
-// const RecipesAPI = require('../data-sources/recipes');
+const RecipesAPI = require('./data-sources/recipes');
 
 const server = new ApolloServer({
   typeDefs,
   dataSources: () => ({
-    // RecipesAPI: new RecipesAPI()
+    RecipesAPI: new RecipesAPI()
   })
 });
 

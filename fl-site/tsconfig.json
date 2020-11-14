@@ -22,8 +22,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "data-sources/recipes.js",
-    "lib/initApollo.js"
   ],
   "exclude": [
     "node_modules"

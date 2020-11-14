@@ -1,5 +1,5 @@
 {
-  "name": "apollo-server",
+  "name": "f.l-apollo-server",
   "version": "1.0.0",
   "description": "The Apollo server for Foody.Land.",
   "main": "index.js",
@@ -12,6 +12,8 @@
   "author": "Jasper Kennis <jasper.kennis@helloprint.com>",
   "license": "ISC",
   "dependencies": {
+    "apollo-server": "^2.19.0",
+    "dotenv": "^8.2.0",
     "graphql": "^15.4.0"
   }
 }
