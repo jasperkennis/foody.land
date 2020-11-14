@@ -1,12 +1,15 @@
 import { SchemaComposer } from 'graphql-compose';
-import { authorQuery, authorMutation } from './models/Authors.js';
-import { recipeQuery, recipeMutation } from './models/Recipes.js';
+import AuthorsModel from './models/Authors.js';
+import RecipesModel from './models/Recipes.js';
+
+const { authorQuery, authorMutation } = AuthorsModel
+const { recipeQuery, recipeMutation } = RecipesModel
 
 const capaSchemaComposer = new SchemaComposer();
 
 capaSchemaComposer.Query.addFields({
   ...authorQuery,
-  ...recipeQuery
+  ...recipeQuery,
 });
 
 capaSchemaComposer.Mutation.addFields({

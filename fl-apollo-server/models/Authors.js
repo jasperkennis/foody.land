@@ -1,4 +1,5 @@
 import composeWithMongoose from 'graphql-compose-mongoose'
+import mongoose from 'mongoose'
 
 const authorSchema = new Schema({
   authorId: String,
@@ -39,4 +40,4 @@ const authorMutation = {
   authorRemoveMany: AuthorsTC.getResolver('removeMany'),
 };
 
-export default { AuthorsTC, authorQuery, authorMutation }
+export default { authorQuery, authorMutation, AuthorsTC }

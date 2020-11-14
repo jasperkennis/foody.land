@@ -1,4 +1,7 @@
 import AuthorTC from './Authors.js'
+import mongoose from 'mongoose'
+import composeWithMongoose from 'graphql-compose-mongoose'
+
 const recipeSchema = new Schema({
   recipeId: String,
   recipeRef: [{

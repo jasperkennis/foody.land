@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es6: true,
@@ -24,6 +25,25 @@ module.exports = {
     'react',
   ],
   rules: {
+    'template-curly-spacing': 'off',
+    indent: 'off',
+    'no-console': 'off',
+    'linebreak-style': [
+        'error',
+        'unix'
+    ],
+    quotes: [
+        'error',
+        'single'
+    ],
+    semi: [
+        'error',
+        'never'
+    ],
+    'comma-dangle': [
+        'error',
+        'always-multiline'
+    ],
   },
   settings: {
     react: {
