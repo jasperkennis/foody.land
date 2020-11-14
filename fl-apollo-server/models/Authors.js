@@ -1,7 +1,7 @@
-import composeWithMongoose from 'graphql-compose-mongoose'
+import { composeWithMongoose } from 'graphql-compose-mongoose'
 import mongoose from 'mongoose'
 
-const authorSchema = new Schema({
+const authorSchema = new mongoose.Schema({
   authorId: String,
   name: String,
   dateCreated: {

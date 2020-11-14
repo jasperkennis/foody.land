@@ -1,8 +1,10 @@
-import AuthorTC from './Authors.js'
+import AuthorModel from './Authors.js'
 import mongoose from 'mongoose'
-import composeWithMongoose from 'graphql-compose-mongoose'
+import {composeWithMongoose} from 'graphql-compose-mongoose'
 
-const recipeSchema = new Schema({
+const { AuthorsTC } = AuthorModel
+
+const recipeSchema = new mongoose.Schema({
   recipeId: String,
   recipeRef: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -26,7 +28,7 @@ const Recipes = mongoose.model('Recipes', recipeSchema, 'Recipes');
 const RecipesTC = composeWithMongoose(Recipes);
 
 RecipesTC.addRelation('author', {
-  resolver: () => AuthorTC.getResolver('findById'),
+  resolver: () => AuthorsTC.getResolver('findById'),
   prepareArgs: {
     _id: source => source.authorRef,
     skip: null,
@@ -36,23 +38,23 @@ RecipesTC.addRelation('author', {
 })
 
 const recipeQuery = {
-  recipeById: RecipeTC.getResolver('findById'),
-  recipeByIds: RecipeTC.getResolver('findByIds'),
-  recipeOne: RecipeTC.getResolver('findOne'),
-  recipeMany: RecipeTC.getResolver('findMany'),
-  recipeCount: RecipeTC.getResolver('count'),
-  recipeConnection: RecipeTC.getResolver('connection'),
-  recipePagination: RecipeTC.getResolver('pagination'),
+  recipeById: RecipesTC.getResolver('findById'),
+  recipeByIds: RecipesTC.getResolver('findByIds'),
+  recipeOne: RecipesTC.getResolver('findOne'),
+  recipeMany: RecipesTC.getResolver('findMany'),
+  recipeCount: RecipesTC.getResolver('count'),
+  recipeConnection: RecipesTC.getResolver('connection'),
+  recipePagination: RecipesTC.getResolver('pagination'),
 }
 const recipeMutation = {
-  recipeCreateOne: RecipeTC.getResolver('createOne'),
-  recipeCreateMany: RecipeTC.getResolver('createMany'),
-  recipeUpdateById: RecipeTC.getResolver('updateById'),
-  recipeUpdateOne: RecipeTC.getResolver('updateOne'),
-  recipeUpdateMany: RecipeTC.getResolver('updateMany'),
-  recipeRemoveById: RecipeTC.getResolver('removeById'),
-  recipeRemoveOne: RecipeTC.getResolver('removeOne'),
-  recipeRemoveMany: RecipeTC.getResolver('removeMany'),
+  recipeCreateOne: RecipesTC.getResolver('createOne'),
+  recipeCreateMany: RecipesTC.getResolver('createMany'),
+  recipeUpdateById: RecipesTC.getResolver('updateById'),
+  recipeUpdateOne: RecipesTC.getResolver('updateOne'),
+  recipeUpdateMany: RecipesTC.getResolver('updateMany'),
+  recipeRemoveById: RecipesTC.getResolver('removeById'),
+  recipeRemoveOne: RecipesTC.getResolver('removeOne'),
+  recipeRemoveMany: RecipesTC.getResolver('removeMany'),
 };
 
 export default {Recipes, recipeQuery, recipeMutation}
