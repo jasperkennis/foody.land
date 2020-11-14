@@ -1,9 +1,9 @@
 
-import gql from 'graphql-tag';
-import React from 'react';
-import styles from '../styles/RecipeList.module.scss';
-import withApollo from '../components/with-apollo';
-import { useQuery } from 'react-apollo';
+import gql from 'graphql-tag'
+import React from 'react'
+import styles from '../styles/RecipeList.module.scss'
+import withApollo from '../components/with-apollo'
+import { useQuery } from 'react-apollo'
 
 const GET_RECIPIES = gql`
   query GetRecipes {
@@ -11,15 +11,13 @@ const GET_RECIPIES = gql`
       title
     }
   }
-`;
-
-
+`
 
 const RecipeList = () => {
   console.log('Getting intial props')
-  const { loading, error, data } = useQuery(GET_RECIPIES);
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  const { loading, error, data } = useQuery(GET_RECIPIES)
+  if (loading) return 'Loading...'
+  if (error) return `Error! ${error.message}`
   console.log(data)
   return (
     <div className={styles['recipe-list']} data-test-selector="recipe-list">
@@ -34,10 +32,13 @@ const RecipeList = () => {
 
 RecipeList.getInitialProps = () => {
   console.log('Getting intial props')
-  const { loading, error, data } = useQuery(GET_RECIPIES);
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  const requestrun = useQuery(GET_RECIPIES)
+  console.log(requestrun)
+  console.log('any data?')
+  const { loading, error, data } = useQuery(GET_RECIPIES)
+  if (loading) return 'Loading...'
+  if (error) return `Error! ${error.message}`
   console.log(data)
 }
 
-export default withApollo({ ssr: true })(RecipeList);
+export default withApollo({ ssr: true })(RecipeList)
