@@ -5,11 +5,27 @@ import { ApolloServer } from 'apollo-server'
 import typeDefs from './models/schema.js'
 import RecipesAPI from './data-sources/recipes.js'
 
+const recipes = [
+  {
+    title: 'Tjonkaplonka',
+    author: {
+      name: 'Johannes'
+    },
+  }
+];
+
+const resolvers = {
+  Query: {
+    recipes: () => recipes,
+  },
+};
+
 const server = new ApolloServer({
   typeDefs,
-  dataSources: () => ({
-    RecipesAPI: new RecipesAPI()
-  })
+  resolvers
+  // dataSources: () => ({
+  //   RecipesAPI: new RecipesAPI()
+  // })
 });
 
 server.listen().then(({ url }) => {
