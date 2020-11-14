@@ -17,33 +17,4 @@ type Author {
   recipes: [Recipe]
 }
 
-"""
-Ways to get data.
-"""
-type Query {
-  recipes: [Recipe]!
-  author(name: String!): Author
-}
-
-"""
-The stuff you get when you try to get a recipe
-"""
-type RecipeUpdateResponse {
-  """
-  Only true if you made it more yummy!
-  """
-  success: Boolean!
-  message: String
-  recipes: [Recipe]
-}
-
-"""
-Ways to update things
-"""
-type Mutation {
-  """
-  Update a recipe (make it even more yummy please?!)
-  """
-  updateRecipe(titles: [String]!): RecipeUpdateResponse!
-}
 `;

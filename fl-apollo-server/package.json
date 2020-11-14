@@ -15,7 +15,9 @@
     "apollo-datasource-mongodb": "^0.2.8",
     "apollo-server": "^2.19.0",
     "dotenv": "^8.2.0",
-    "graphql": "^15.4.0"
+    "graphql": "^15.4.0",
+    "graphql-compose": "^7.22.1",
+    "graphql-compose-mongoose": "^9.0.0"
   },
   "type": "module"
 }
