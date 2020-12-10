@@ -1,8 +1,8 @@
 /* @flow */
 
 import mongoose from 'mongoose';
-import dotenv from 'dotenv'
-dotenv.config()
+
+const hostUri = 'mongodb://mongo:27017/foodyland'
 
 mongoose.Promise = Promise;
 
@@ -15,18 +15,18 @@ const opts = {
   useFindAndModify: false,
 };
 
-mongoose.connect(process.env.MAIN_MONGO_DB, opts);
+mongoose.connect(hostUri, opts);
 
 export const { connection } = mongoose;
 connection.on('error', (e) => {
   if (e.message.code === 'ETIMEDOUT') {
     console.log(e);
-    mongoose.connect(process.env.MAIN_MONGO_DB, opts);
+    mongoose.connect(hostUri, opts);
   }
   console.log(e);
 });
 connection.on('connected', () => {
-  console.log(`MongoDB successfully connected to ${process.env.MAIN_MONGO_DB}`);
+  console.log(`MongoDB successfully connected to ${hostUri}`);
 });
 connection.on('reconnected', () => {
   console.log('MongoDB reconnected!');
