@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
-import styles from '../styles/home.module.scss'
+// import styles from '../styles/home.module.scss'
+import styles from '../styles/Home.module.scss'
 // import withApollo from '../components/with-apollo';
 import RecipeList from '../components/recipe-list'
 import { ApolloProvider } from 'react-apollo'
