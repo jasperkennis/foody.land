@@ -1,5 +1,5 @@
-// import dotenv from 'dotenv'
-// dotenv.config()
+import dotenv from 'dotenv'
+dotenv.config()
 
 import { ApolloServer } from 'apollo-server'
 import schema from './dynamic-schema.js'
