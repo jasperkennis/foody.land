@@ -1,44 +1,72 @@
+/**
+ * @example
+ *
+ * PAYLOAD
+{
+  "recipeCreateOneRecord": {
+    "title": "Butter beer",
+    "dateUpdated": "412",
+    "dateCreated": "535"
+  }
+}
+ */
 
 import gql from 'graphql-tag'
 import React from 'react'
 import styles from '../styles/RecipeList.module.scss'
 import withApollo from '../components/with-apollo'
-import { useQuery } from 'react-apollo'
+import { useQuery, useMutation } from 'react-apollo'
 
 const GET_RECIPIES = gql`
   query GetRecipes {
-    recipes {
+    recipeMany {
       title
     }
   }
 `
 
-const RecipeList = () => {
-  console.log('Getting intial props')
-  const { loading, error, data } = useQuery(GET_RECIPIES)
-  if (loading) return 'Loading...'
-  if (error) return `Error! ${error.message}`
-  console.log(data)
-  return (
-    <div className={styles['recipe-list']} data-test-selector="recipe-list">
-      <div className={styles['recipe-list-item']} data-test-selector="recipe-list-item">Look, cook!</div>
-      <div className={styles['recipe-list-item']} data-test-selector="recipe-list-item">Look, cook!</div>
-      <div className={styles['recipe-list-item']} data-test-selector="recipe-list-item">Look, cook!</div>
-      <div className={styles['recipe-list-item']} data-test-selector="recipe-list-item">Look, cook!</div>
-      <div className={styles['recipe-list-item']} data-test-selector="recipe-list-item">Look, cook!</div>
-    </div>
-  )
+const ADD_RECIPEE = gql`
+  mutation Mutation($recipeCreateOneRecord: CreateOneRecipesInput!) {
+    recipeCreateOne(record: $recipeCreateOneRecord) {
+      record {
+        title
+        recipeId
+        dateUpdated
+        dateCreated
+      }
+    }
+  }
+`
+
+const addStuffs = () => {
+  console.log('Adding data')
+
+  const [recipeCreateOne] = useMutation(ADD_RECIPEE)
+  recipeCreateOne({
+    variables: {
+      recipeCreateOneRecord: {
+        title: 'Given by code',
+        dateUpdated: '999',
+        dateCreated: '000',
+      },
+    },
+  })
 }
 
-RecipeList.getInitialProps = () => {
-  console.log('Getting intial props')
-  const requestrun = useQuery(GET_RECIPIES)
-  console.log(requestrun)
-  console.log('any data?')
+const RecipeList = () => {
+  // addStuffs()
+
   const { loading, error, data } = useQuery(GET_RECIPIES)
+
   if (loading) return 'Loading...'
   if (error) return `Error! ${error.message}`
-  console.log(data)
+  return (
+    <div className={styles['recipe-list']} data-test-selector="recipe-list">
+      {data.recipeMany.map((recipe, i) => {
+        return <div key={i} className={styles['recipe-list-item']} data-test-selector="recipe-list-item">{recipe.title}</div>
+      })}
+    </div>
+  )
 }
 
 export default withApollo({ ssr: true })(RecipeList)

@@ -32,7 +32,7 @@ const Home = ({custom}: Props) => (
 )
 
 Home.getInitialProps = ({ pathname, query }) => ({
-  custom: 'custom', // pass some custom props to component
+  custom: 'some custom string', // pass some custom props to component
 })
 
 export default Home
