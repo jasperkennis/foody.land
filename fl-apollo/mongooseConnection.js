@@ -2,7 +2,8 @@
 
 import mongoose from 'mongoose';
 
-const hostUri = 'mongodb://mongo:27017/foodyland'
+// const hostUri = 'mongodb://root:example@mongo:27017/foodyland'
+const hostUri = 'mongodb://root:example@mongo:27017/foodyland?authSource=admin&readPreference=primary&ssl=false'
 
 mongoose.Promise = Promise;
 
@@ -14,13 +15,13 @@ const opts = {
   useCreateIndex: true,
   useFindAndModify: false,
 };
-
+console.log(hostUri)
 mongoose.connect(hostUri, opts);
 
 export const { connection } = mongoose;
 connection.on('error', (e) => {
   if (e.message.code === 'ETIMEDOUT') {
-    console.log(e);
+    console.error(e);
     mongoose.connect(hostUri, opts);
   }
   console.log(e);
