@@ -15,7 +15,7 @@ const opts = {
   useCreateIndex: true,
   useFindAndModify: false,
 };
-console.log(hostUri)
+
 mongoose.connect(hostUri, opts);
 
 export const { connection } = mongoose;
@@ -24,17 +24,17 @@ connection.on('error', (e) => {
     console.error(e);
     mongoose.connect(hostUri, opts);
   }
-  console.log(e);
+  console.error(e);
 });
 connection.on('connected', () => {
-  console.log(`MongoDB successfully connected to ${hostUri}`);
+  console.info(`MongoDB successfully connected to ${hostUri}`);
 });
 connection.on('reconnected', () => {
-  console.log('MongoDB reconnected!');
+  console.info('MongoDB reconnected!');
 });
 
 process.on('SIGINT', async () => {
   await connection.close();
-  console.log('Force to close the MongoDB conection');
+  console.info('Force to close the MongoDB conection');
   process.exit(0);
 });
