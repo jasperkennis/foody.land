@@ -8,6 +8,7 @@ import './mongooseConnection.js'
 const server = new ApolloServer({
   schema,
   introspection: true,
+  debug: true
 });
 
 server.listen().then(({ url }) => {
